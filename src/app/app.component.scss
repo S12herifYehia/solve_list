@@ -1,0 +1,28 @@
+@import '../abstracts/vars';
+.logo {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 6px;
+    }
+  
+    div {
+      width: 120px;
+      display: flex;
+  
+      h2 {
+        font-size: 25px;
+        text-transform: uppercase;
+        line-height: 1;
+        width: 61px;
+        color:black;
+      }
+  
+      span {
+        font-size: 7px;
+        display: flex;
+        align-items: flex-end;
+        color: black;
+      }
+    }
+  }

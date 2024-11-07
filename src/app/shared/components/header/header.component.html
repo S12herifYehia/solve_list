@@ -1,0 +1,36 @@
+<header [ngClass]="{ home_page: isHomePage(), other_page: !isHomePage() }">
+  <div class="container">
+    <a class="logo"
+      ><img src="assets/header/logo.png" alt="logo" />
+      <div>
+        <h2>Solve List</h2>
+        <span>find , fix & flourish</span>
+      </div>
+    </a>
+    <ul>
+      <li><a routerLink="home" [routerLinkActive]="'active'">Home</a></li>
+      <li><a routerLink="about" [routerLinkActive]="'active'">About Us</a></li>
+      <li>
+        <a routerLink="contact" [routerLinkActive]="'active'">Contact Us</a>
+      </li>
+      <li class="services">
+        <a #linkSer href="#" [routerLinkActive]="'active'"
+          >Services <i #angle class="fa-solid fa-angle-down"></i
+        ></a>
+        <!-- <i class="fa-solid fa-angle-up"></i> -->
+        <div class="drop_down" #dropdown>
+          <ul>
+            <li><a routerLink="overview">Overview</a></li>
+            <li><a routerLink="custom">Odoo Customization</a></li>
+            <li><a routerLink="implement">Odoo Implementation</a></li>
+            <li><a routerLink="intergration">Odoo Integration</a></li>
+            <li><a routerLink="migration">Odoo Migration</a></li>
+            <li><a routerLink="support">Odoo Support</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+    <button class="applynow">APPLY Now</button>
+  </div>
+</header>
