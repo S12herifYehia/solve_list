@@ -19,12 +19,21 @@ export class HeaderComponent {
   @ViewChild('linkSer') linkser!: ElementRef;
   @ViewChild('dropdown') dropdown!: ElementRef;
   @ViewChild('angle') angle!: ElementRef;
+
+  @ViewChild('menu') menu!: ElementRef;
+  @ViewChild('list') list!: ElementRef;
   myEvent = false;
+  myEventList = false;
 
   hideDrop = false;
 
+  private clickListener!:Function;
   isHomePage(): boolean {
     return this.router.url === '/home';
+  }
+
+  ngOnInit(): void {
+
   }
 
   ngAfterViewInit(): void {
@@ -44,5 +53,46 @@ export class HeaderComponent {
       // تغيير حالة myEvent
       this.myEvent = !this.myEvent;
     });
+
+    this.clickListener = this.render.listen(this.menu.nativeElement, 'click', (e) => {
+      this.toggleMenu();
+      e.stopPropagation()
+      // this.showMenu();
+    });
+
+ 
+  }
+
+  toggleMenu() {
+    this.myEventList = !this.myEventList;
+    if (this.myEventList) {
+      this.render.removeClass(this.menu.nativeElement, 'fa-bars');
+      this.render.addClass(this.menu.nativeElement, 'fa-xmark');
+      this.render.addClass(this.list.nativeElement,'show')
+    } else {
+      this.render.addClass(this.menu.nativeElement, 'fa-bars');
+      this.render.removeClass(this.menu.nativeElement, 'fa-xmark');
+      this.render.removeClass(this.list.nativeElement,'show')
+    }
+
+  
+  
+
+
+    
+  }
+
+
+
+
+
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+
+    if(this.clickListener){
+      this.clickListener()
+    }
   }
 }

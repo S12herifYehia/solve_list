@@ -18,6 +18,7 @@ a {
 
 body {
   font-family: "Poppins", sans-serif;
+  // overflow-x: hidden;
 }
 
 section {
@@ -54,14 +55,17 @@ button {
   line-height: 41px;
   font-size: 14px;
   color: $primary_color;
-  @media (min-width: 992px) and (max-width: 1199px) {
- height: 38px;
- font-size: 13px;
+  //   @media (min-width: 992px) and (max-width: 1199px) {
+  //  height: 38px;
+  //  font-size: 13px;
+  //   }
+
+  @media (max-width: 767px) {
+    width: 96px;
+    height: 35px;
+    font-size: 12px;
+    line-height: 35px;
   }
-}
-
-.apply {
-
 }
 
 body {
@@ -85,6 +89,15 @@ body {
       line-height: 1;
       width: 61px;
       // color: $primary_color;
+      @media (max-width: 767px) {
+        font-size: 18px;
+        width: 41px;
+      }
+
+      // @media (max-width: 991px) {
+      //  font-size: 22px;
+
+      // }
     }
 
     span {
@@ -92,6 +105,9 @@ body {
       display: flex;
       align-items: flex-end;
       // color: #ebebeb;
+      @media (max-width: 767px) {
+        width: 40px;
+      }
     }
   }
 }
@@ -105,10 +121,19 @@ body {
       weight: 600;
     }
 
-
-    @media (min-width:992px) and (max-width:1199px){
-    font-size: 25px;
+    @media (max-width: 767px) {
+      font-size: 18px;
     }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      font-size: 22px;
+    }
+
+    // @media (max-width: 991px) {
+    //  font-size: 25px;
+
+    // }
+
     span {
       color: $secondary_color;
     }
@@ -121,10 +146,26 @@ body {
       weight: 400;
     }
     margin: 10px auto;
-    @media (min-width:992px) and (max-width:1199px){
-    width: 634px;
-    font-size: 15px;
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      font-size: 16px;
+      width: 100%;
     }
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+      width: 100%;
+    }
+
+    // @media (max-width: 991px) {
+    //    font-size: 16px;
+    //    width: 100%;
+    // }
+
+    // @media (min-width:992px) and (max-width:1199px){
+    // width: 634px;
+    // font-size: 15px;
+    // }
   }
 }
 
@@ -151,31 +192,3 @@ body {
 span.change_color {
   color: $secondary_color;
 }
-
-// .logo {
-//     display: flex;
-//     align-items: center;
-//     img {
-//       margin-right: 6px;
-//     }
-
-//     div {
-//       width: 120px;
-//       display: flex;
-
-//       h2 {
-//         font-size: 25px;
-//         text-transform: uppercase;
-//         line-height: 1;
-//         width: 61px;
-//         color:black;
-//       }
-
-//       span {
-//         font-size: 7px;
-//         display: flex;
-//         align-items: flex-end;
-//         color: black;
-//       }
-//     }
-//   }

@@ -3,25 +3,63 @@
   width: 100%;
   height: 100vh;
   background-color: $primary_color;
-  position: relative;
+  
+
+  @media (max-width: 767px) {
+    height: 100vh;
+  }
+
+
+  .container{
+    position: relative;
+    height: 100%;
+  }
   .content_land {
     padding-top: 120px;
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      padding-top: 150px;
+    }
     .content {
       display: flex;
       justify-content: space-between;
       margin-bottom: 59px;
+
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
       .title {
         width: 414px;
+        @media (max-width: 991px) {
+          width: 100%;
+        }
         span.odoo {
           font-size: 24px;
           font-weight: 500;
           color: #7d7d7d;
+
+          @media (max-width: 767px) {
+            font-size: 16px;
+          }
+
+          @media (min-width: 768px) and (max-width: 991px) {
+            font-size: 18px;
+          }
         }
         h2 {
           width: 414px;
           font-weight: 500;
           font-size: 40px;
           margin-top: 10px;
+          @media (max-width: 767px) {
+            width: 100%;
+            font-size: 18px;
+          }
+
+          @media (min-width: 768px) and (max-width: 991px) {
+            font-size: 22px;
+            width: 100%;
+          }
         }
       }
 
@@ -30,6 +68,23 @@
         font-size: 20px;
         font-weight: 500;
         color: #484848;
+        @media (max-width: 767px) {
+            width: 100%;
+            font-size: 14px;
+            margin-top: 15px;
+          }
+
+
+          @media (min-width:0px) and (max-width:320px) {
+            
+            
+        //  margin-top: 0;
+          }
+
+          @media (min-width: 768px) and (max-width: 991px) {
+            font-size: 16px;
+            width: 100%;
+          }
       }
     }
   }
@@ -38,8 +93,18 @@
     width: 100%;
     object-position: center;
     object-fit: cover;
-    height: 423px;
+    height: 370px;
     border-radius: 40px 40px 0px 0px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+
+    @media (min-width:0px) and (max-width:320px) {
+            
+            
+     height: auto;    
+    }
   }
 }
 
@@ -48,13 +113,24 @@
     padding-bottom: 100px;
     .content_why{
         width: 1228px;
-        height: 597px;
+        min-height: 597px;
         border-radius: 40px;
         margin: auto;
         background-color: $primary_color;
         padding: 50px;
         display: flex;
         gap: 15px;
+
+        @media (max-width: 991px) {
+            padding: 25px;
+      
+            flex-direction: column-reverse;
+            width: 100%;
+          }
+
+          @media (min-width: 992px) and (max-width: 1200px) {
+            width: 100%; 
+           }
 
         .year{
             width: 305px;
@@ -66,6 +142,10 @@
             gap: 20px;
             align-items: center;
             padding: 0px 15px;
+            @media (max-width: 991px) {
+                width: 100%;
+                justify-content: center;
+              }
             h3{
                 font-size: 32px;
                 font-weight: 700;
@@ -78,12 +158,28 @@
                 color: $primary_color;
                 width: 88px;
             }
+
+            @media (min-width: 992px) and (max-width: 1200px) {
+              width: 100%;
+              }
+        }
+        .left_item{
+          @media (min-width: 992px) and (max-width: 1200px) {
+          width: 30%;
+          }
         }
 
         .right_item{
+
+          @media (min-width: 992px) and (max-width: 1200px) {
+            width: 68%;
+            }
             h2{
                 font-size: 28px;
                 font-weight: 500;
+                @media (max-width: 991px) {
+                    font-size: 22px;
+                  }
             }
             p{
                 font-size: 18px;
@@ -91,10 +187,34 @@
                 line-height: 32px;
                 margin: 36px 0px;
                 width: 741px;
+                @media (max-width: 991px) {
+                    width: 100%;
+                    font-size: 14px;
+                  }
+
+                  @media (min-width:768px) and (max-width: 1200px) {
+                    width:100%;
+                    font-size: 16px;
+              
+                  }
             }
+            .img_right {
+                width: 100%;
+              }
         }
     }
-    
+    .img_left {
+        width: 100%;
+
+        @media (min-width: 768px) and (max-width: 991px) {
+      
+          width: 100%;
+          height:400px;
+          object-fit:cover;
+          object-position:center;
+          
+        }
+      }
 }
 
   
@@ -104,7 +224,7 @@
     .content_concept{
         width: 1064px;
         // width: 100%;
-        height: 252px;
+        min-height: 252px;
         border-radius: 20px;
         background-color: $secondary_color;
         margin: auto;
@@ -114,7 +234,16 @@
         padding: 50px;
         position: relative;
         overflow: hidden;
+        flex-wrap: wrap;
 
+        @media (max-width:1200px){
+
+            // font-size: 16px;
+        
+            padding: 25px;
+            width: 100%;
+          }
+  
         &::after{
             content: '';
             position: absolute;
@@ -126,7 +255,13 @@
 
             border-radius: 50%;
             transform: rotate(-4deg);
-            // z-index: -1;
+            
+            @media (max-width:991px){
+
+                bottom: -160px;
+                    }
+  
+
 
         }
 
@@ -139,6 +274,10 @@
             border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             transform: rotate(-9deg);
+            @media (max-width:991px){
+                bottom: -129px;
+                  
+                      }
         }
 
         &::before{
@@ -152,6 +291,10 @@
 
             border-radius: 50%;
             transform: rotate(-4deg);
+            @media (max-width:991px){
+
+                bottom: -142px;
+                    }
         }
         .content{
             h2{
@@ -159,6 +302,11 @@
                 font-size: 32px;
                 color: $primary_color;
                 font-weight: 600;
+                @media (max-width:991px){
+
+                    font-size: 22px;
+                    width: 100%;
+                        } 
             }
 
             p{
@@ -166,6 +314,11 @@
                 font-weight: 400;
                 color: $primary_color;
                 margin-top: 8px;
+                @media (max-width:991px){
+
+                    font-size: 14px;
+                    margin-top: 17px;
+                        }
             }
 
 
@@ -184,3 +337,17 @@
         }
     }
 }
+
+
+
+.apply {
+    position: relative;
+    z-index: 2;
+    
+      @media (max-width:767px){
+    margin-top: 22px;
+    width: 134px;
+    height: 43px;
+      }
+    }
+    

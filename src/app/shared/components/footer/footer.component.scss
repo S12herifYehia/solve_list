@@ -1,78 +1,158 @@
-@import '../../../../abstracts/vars';
+@import "../../../../abstracts/vars";
 
-footer{
-    width: 100%;
-    // position: absolute;
-    padding: 70px 0px;
-    // bottom: 0;
-    // left: 0;
-    height:286px ;
-    .container{
-        display: flex;
-        justify-content: space-between;
-      
-    
+footer {
+  width: 100%;
+  // position: absolute;
+  // position: relative;
 
-      
-        gap: 45px;
-        .contact{
-        
-           
-            p{
-                margin-block: 20px;
-                color: $desc_color;
-                width: 311px;
-            }
+  padding: 70px 0px;
+  // bottom: 0;
+  // left: 0;
+  min-height: 286px;
+  .container {
+    display: flex;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 45px;
 
-            .icon_contact{
-                div{
-                    width: 270px;
-                    height: 45px;
-                    background-color: $primary_color;
-                    border-radius: 10px;
-                    margin-bottom: 10px;
-                    line-height: 45px;
-                    padding-inline: 5px;
-                    i{
-                        color: $secondary_color;
-                        margin-right: 5px;
-                    }
-                }
-            }
 
-            
-        }
-        h3{
-            color: #0F0F0F;
-            margin-bottom: 20px;
-            text-transform: capitalize;
-            font-size: 20px;
-        }
-
-        ul{
-            li{
-                a{
-                    color: #7D7D7D;
-                    margin-bottom: 10px;
-                    font-size: 16px;
-                }
-            }
-
-           
-        }
-        .content{
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-        }
+    @media (min-width: 992px) and (max-width: 1200px) {
+     flex-wrap: nowrap; 
     }
+
+    @media (max-width: 991px) {
+      flex-direction: column; // التأكد من ترتيب العناصر عموديًا في الشاشات الصغيرة
+      gap: 15px; // تحديد المسافة بين العناصر
+    }
+    .contact {
+      @media (max-width: 991px) {
+        text-align: center;
+      }
+
+      // @media (max-width: 991px) {
+      //   text-align: center;
+      //   margin: auto;
+      // }
+
+      p {
+        margin-block: 20px;
+        color: $desc_color;
+        width: 311px;
+        @media (max-width: 991px) {
+          width: 100%;
+        }
+
+        // @media (max-width: 991px) {
+        //   width: 100%;
+        // }
+      }
+
+      .logo {
+        @media (max-width: 991px) {
+          justify-content: center;
+        }
+
+        @media (max-width: 991px) {
+          justify-content: center;
+        }
+      }
+
+      .icon_contact {
+        @media (max-width: 991px) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        // @media (max-width: 991px) {
+        //   display: flex;
+        //   flex-direction: column;
+        //   align-items: center;
+        // }
+        div {
+          width: 270px;
+          height: 45px;
+          background-color: $primary_color;
+          border-radius: 10px;
+          margin-bottom: 10px;
+          line-height: 45px;
+          padding-inline: 5px;
+          i {
+            color: $secondary_color;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    h3 {
+      color: #0f0f0f;
+      margin-bottom: 20px;
+      text-transform: capitalize;
+      font-size: 20px;
+
+      @media (max-width: 767px) {
+        font-size: 18px;
+      }
+    }
+
+    ul {
+      li {
+        a {
+          color: #7d7d7d;
+          margin-bottom: 10px;
+          font-size: 16px;
+        }
+      }
+    }
+    .content {
+      // flex: 1;
+      // display: grid;
+      // grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+      display: flex;
+      justify-content: space-between;
+      width: 62%;
+
+      @media (max-width: 991px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        text-align: center;
+        width: 100%;
+      }
+
+      // @media (max-width: 991px) {
+      //   display: grid;
+      //   grid-template-columns: repeat(3, 1fr);
+      //   // justify-content: center;
+      //   width: 100%;
+      //   text-align: center;
+      // }
+
+      .quick {
+        // flex: 1;
+
+        @media (max-width: 991px) {
+          display: grid;
+
+          grid-template-columns: 1fr;
+          width: 200%;
+          text-align: center;
+        }
+      }
+      // .company{
+      //     @media (min-width: 992px) and (max-width: 1199px) {
+      //     width: 200px;
+      //       }
+      // }
+    }
+  }
 }
 
 .logo {
-    h2{
-        color: #0F0F0F;
-    }
-    span{
-        color: #0F0F0F;
-    }
+  h2 {
+    color: #0f0f0f;
+  }
+  span {
+    color: #0f0f0f;
+  }
 }
