@@ -1,5 +1,140 @@
 @import "../../../abstracts/vars";
 
+.loading {
+  width: 100%;
+  height: 100vh;
+  background-color: #0e0e0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 200000000;
+  flex-direction: column;
+
+  transition: 0.3s;
+
+
+  &.show{
+    top:-100%;
+  }
+
+  .loader {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 2s linear infinite;
+
+    margin-bottom:10px;
+  }
+  .loader::before , .loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite ;
+  }
+  .loader::after{
+    border-color: #FF3D00;
+    animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
+    inset: 6px;
+  }
+
+  @keyframes rotate {
+    0%   {transform: rotate(0deg)}
+    100%   {transform: rotate(360deg)}
+  }
+
+  @keyframes prixClipFix {
+      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+  }
+
+  h2 {
+    display: inline-block;
+
+    span {
+      font-size: 70px;
+      letter-spacing: 5px;
+      -webkit-text-stroke: 2px #ff8c00; /* لون الحواف */
+      -webkit-text-stroke: 2px $primary_color; /* لون الحواف */
+      background: linear-gradient(
+        to right,
+        #ff8c00,
+        #ffd700
+      ); /* التدرج اللوني */
+      transform-origin: center center;
+      -webkit-background-clip: text; /* استخدام خلفية النص */
+      background-clip: text;
+      color: transparent; /* جعل النص شفافًا ليظهر التدرج */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* إضافة الظل للنص */
+      display: inline-block;
+     
+      animation: showColor 2s linear infinite; /* تطبيق الأنيميشن */
+
+
+
+      &:nth-child(1){
+        
+        animation-delay: 0.2s;
+      }
+      &:nth-child(2){
+        animation-delay: 0.4s;
+      }
+      &:nth-child(3){
+        animation-delay: 0.6s;
+      }
+      &:nth-child(4){
+        animation-delay: 0.8s;
+      }
+      &:nth-child(5){
+        animation-delay: 1s;
+      }
+      &:nth-child(6){
+        animation-delay: 1.2s;
+      }
+      &:nth-child(7){
+        animation-delay: 1.4s;
+      }
+      &:nth-child(8){
+        animation-delay: 1.6s;
+      }
+      &:nth-child(9){
+        animation-delay: 1.8s;
+      }
+      @keyframes showColor {
+        0% {
+          background: transparent;
+          
+          -webkit-background-clip: text;
+          background-clip: text;
+          transform: scale(1);
+        }
+
+        50% {
+          background: linear-gradient(to right, #ff6347, #ff1493);
+          transform: scale(1.2);
+          -webkit-background-clip: text;
+          background-clip: text;
+        }
+        100% {
+          background: linear-gradient(to right, #ff8c00, #ffd700);
+          -webkit-background-clip: text;
+          background-clip: text;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
 body {
   overflow-x: hidden;
 }
@@ -351,8 +486,6 @@ body {
     line-height: 84px;
     text-align: center;
 
-
-
     @media (min-width: 992px) and (max-width: 1200px) {
       width: 280px;
     }
@@ -419,8 +552,6 @@ body {
     @media (min-width: 768px) and (max-width: 1200px) {
       width: 50%;
     }
-
-
   }
 
   .ontime_del {
@@ -886,9 +1017,8 @@ body {
           width: 100%;
         }
 
-
         @media (min-width: 992px) and (max-width: 1200px) {
-      width: 50%;
+          width: 50%;
         }
 
         h4 {
@@ -931,8 +1061,7 @@ body {
           //   }
 
           @media (min-width: 992px) and (max-width: 1200px) {
-      width: 100%;
-
+            width: 100%;
           }
         }
 
@@ -952,7 +1081,7 @@ body {
           }
 
           @media (min-width: 992px) and (max-width: 1200px) {
-      width: 100%;
+            width: 100%;
           }
 
           //       @media (min-width: 992px) and (max-width: 1199px) {
@@ -973,7 +1102,7 @@ body {
       }
 
       @media (min-width: 992px) and (max-width: 1200px) {
-      width: 50%;
+        width: 50%;
       }
     }
   }

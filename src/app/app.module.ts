@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MigrationComponent } from './components/migration/migration.component';
 import { SupportComponent } from './components/support/support.component';
+import { AppScrollBarComponent } from './shared/app-scroll-bar/app-scroll-bar.component';
 
 @NgModule({
   declarations: [AppComponent],
