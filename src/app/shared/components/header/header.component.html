@@ -1,7 +1,7 @@
 <header [ngClass]="{ home_page: isHomePage(), other_page: !isHomePage() }" #header>
   <div class="container">
     
-    <a class="logo" 
+    <a class="logo"  routerLink="home"
       ><img src="assets/header/logo.png" alt="logo" />
       <div>
         <h2>Solve List</h2>

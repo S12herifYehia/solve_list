@@ -128,6 +128,7 @@ header {
     }
 
     .logo {
+      animation: heart 2s linear infinite alternate;
       h2 {
         color: $primary_color;
       }
@@ -212,7 +213,16 @@ header {
       }
     }
 
+
+   
+
     .logo {
+      
+   
+
+    
+      animation: heart 2s linear infinite alternate;
+    
       div {
         h2 {
           color: #000000;
@@ -224,7 +234,13 @@ header {
       }
     }
   }
+
+
 }
+
+
+
+
 
 .services {
   position: relative;
@@ -261,5 +277,22 @@ header {
         }
       }
     }
+  }
+}
+
+
+
+@keyframes heart {
+  0% {
+    transform: scale(1);      /* بداية الأنيميشن مع حجم طبيعي */
+    color: #fff;              /* اللون الأصلي */
+  }
+  50% {
+    transform: scale(1.1);    /* تكبير الحجم قليلاً */
+    color: #ff6347;           /* تغيير اللون أثناء الحركة */
+  }
+  100% {
+    transform: scale(1);      /* العودة للحجم الطبيعي */
+    color: #fff;              /* العودة للون الأصلي */
   }
 }
