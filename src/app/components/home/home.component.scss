@@ -1,8 +1,6 @@
-@import "../../../abstracts/vars";
+@import "../../abstracts/vars";
 
 .loading {
-  width: 100%;
-  height: 100vh;
   background-color: #0e0e0d;
   display: flex;
   justify-content: center;
@@ -10,14 +8,15 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  top: 0;
+  right: 0;
   z-index: 200000000;
   flex-direction: column;
 
   transition: 0.3s;
 
-
-  &.show{
-    top:-100%;
+  &.show {
+    display: none;
   }
 
   .loader {
@@ -27,40 +26,57 @@
     position: relative;
     animation: rotate 2s linear infinite;
 
-    margin-bottom:10px;
+    margin-bottom: 10px;
   }
-  .loader::before , .loader::after {
+  .loader::before,
+  .loader::after {
     content: "";
     box-sizing: border-box;
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid #FFF;
-    animation: prixClipFix 2s linear infinite ;
+    border: 5px solid #fff;
+    animation: prixClipFix 2s linear infinite;
   }
-  .loader::after{
-    border-color: #FF3D00;
-    animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
+  .loader::after {
+    border-color: #ff3d00;
+    animation: prixClipFix 2s linear infinite,
+      rotate 0.5s linear infinite reverse;
     inset: 6px;
   }
 
   @keyframes rotate {
-    0%   {transform: rotate(0deg)}
-    100%   {transform: rotate(360deg)}
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   @keyframes prixClipFix {
-      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
-      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+    0% {
+      clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+    }
+    25% {
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+    }
+    50% {
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+    }
+    75% {
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+    }
+    100% {
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+    }
   }
 
   h2 {
     display: inline-block;
 
     span {
+
       font-size: 70px;
       letter-spacing: 5px;
       -webkit-text-stroke: 2px #ff8c00; /* لون الحواف */
@@ -76,43 +92,45 @@
       color: transparent; /* جعل النص شفافًا ليظهر التدرج */
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* إضافة الظل للنص */
       display: inline-block;
-     
+
       animation: showColor 2s linear infinite; /* تطبيق الأنيميشن */
 
 
 
-      &:nth-child(1){
-        
+      @media(max-width:767px){
+    font-size: 30px;
+      }
+      &:nth-child(1) {
         animation-delay: 0.2s;
       }
-      &:nth-child(2){
+      &:nth-child(2) {
         animation-delay: 0.4s;
       }
-      &:nth-child(3){
+      &:nth-child(3) {
         animation-delay: 0.6s;
       }
-      &:nth-child(4){
+      &:nth-child(4) {
         animation-delay: 0.8s;
       }
-      &:nth-child(5){
+      &:nth-child(5) {
         animation-delay: 1s;
       }
-      &:nth-child(6){
+      &:nth-child(6) {
         animation-delay: 1.2s;
       }
-      &:nth-child(7){
+      &:nth-child(7) {
         animation-delay: 1.4s;
       }
-      &:nth-child(8){
+      &:nth-child(8) {
         animation-delay: 1.6s;
       }
-      &:nth-child(9){
+      &:nth-child(9) {
         animation-delay: 1.8s;
       }
       @keyframes showColor {
         0% {
           background: transparent;
-          
+
           -webkit-background-clip: text;
           background-clip: text;
           transform: scale(1);
@@ -135,9 +153,9 @@
   }
 }
 
-body {
-  overflow-x: hidden;
-}
+// body {
+//   overflow-x: hidden;
+// }
 .landing {
   width: 100%;
   height: 100vh;
@@ -263,191 +281,169 @@ body {
         height: 297px;
         left: -6px;
       }
-
-      // @media (min-width: 992px) and (max-width: 1199px) {
-      //   width: 282px;
-      //   height: 402px;
-      //   position: absolute;
-      //   left: -29px;
-      //   bottom: 26px;
-      // }
     }
 
-    .content_skills {
-      height: 100%;
+  }
+}
+
+.skills_content {
+  position: absolute;
+  right: 0;
+  top: 50%;
+
+  @media (min-width: 0px) and (max-width: 320px) {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    top: 47%;
+
+    right: 20px;
+  }
+
+  .bollet_top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 30px;
+    border-top: 2px solid #999999;
+    border-right: 2px solid #999999;
+    border-radius: 0px 40px 0px 0px;
+
+    left: -126.2px;
+    top: -47px;
+
+    @media (max-width: 767px) {
+      width: 85px;
+      // left: -113px;
+      top: -44px;
+      left: -113.5px;
+    }
+  }
+
+  .bollet_bottom {
+    position: absolute;
+    left: 59%;
+    transform: translateX(-50%);
+    bottom: -84px;
+    width: 178px;
+    height: 1px;
+    background-color: #999999;
+    border-radius: 40px;
+
+    @media (max-width: 767px) {
+      left: 60%;
+      width: 106px;
+      bottom: -62px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 48%;
+      top: -10px;
+      height: 3px;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      border-bottom: 7px solid #999999;
+    }
+  }
+
+  .skill_point {
+    color: #d0d0d0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 16px;
+
+      border-top: 2px solid #999999;
+      border-right: 2px solid #999999;
+      border-radius: 0px 40px 0px 0px;
+      bottom: -83px;
+      width: 80px;
+      height: 65px;
+
+      @media (max-width: 767px) {
+        height: 39px;
+        // bottom: -57px;
+        bottom: -56px;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 80px;
+      height: 150px;
+      border-left: 2px solid #999999;
+      border-bottom: 2px solid #999999;
+      border-radius: 0px 0px 0px 40px;
+
+      @media (max-width: 767px) {
+        height: 100px;
+        left: -30px;
+      }
+    }
+
+    li {
+      font-size: 12px;
+      margin: 15px 0px;
       position: relative;
-      @media (max-width: 991px) {
-        display: none;
-      }
-      .bollet_left {
-        transform: scaleY(-1);
-        border-radius: 0px 0px 21px 0px;
-        border-bottom: 1px solid #565555;
-        width: 131px;
-        height: 50px;
-        position: absolute;
-        top: -99px;
-        left: -123px;
 
-        @media (max-width: 767px) {
-          width: 84px;
-          left: -76px;
-        }
+      @media (max-width: 767px) {
+        margin: 3px 0px;
       }
 
-      .bollet_bottom {
-        width: 57px;
-        height: 50px;
-
+      &::before {
+        content: "";
         position: absolute;
-        left: 97px;
-        top: 198px;
-        border-radius: 0px 35px 0px 0px;
-        border-top: 1px solid #999999;
-        border-right: 1px solid #999999;
-        @media (min-width: 992px) and (max-width: 1199px) {
-          top: 146px;
-        }
+        left: -35px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 14px;
+        height: 14px;
+        background-color: $secondary_color;
+        border-radius: 50px;
+        border: 1.5px solid #535353;
 
         @media (max-width: 767px) {
-          left: 37px;
-          top: 58px;
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          left: -46px;
-          top: 47px;
-          width: 199px;
-          height: 2px;
-          border-right: 10px solid #56555552;
-          border-radius: 5px;
-          background-color: #999999;
-        }
-
-        &::before {
-          content: "";
-          position: absolute;
-          left: 50.8px;
-          top: 38px;
-          border-left: 6px solid transparent;
-          border-right: 6px solid transparent;
-          border-bottom: 10px solid #999999;
-          // border-radius: 20px; /* يضيف زوايا دائرية */
-        }
-      }
-
-      .skills_bollet {
-        position: absolute;
-        right: 288px;
-        // top: -60px;
-        top: 32px;
-
-        @media (max-width: 767px) {
-          // display: none;
-          right: 41px;
-        }
-
-        // @media (min-width: 992px) and (max-width: 1199px) {
-        //   right: 188px;
-        //   top: 47px;
-        // }
-
-        // @media (min-width: 1220px) {
-        //   right: 253px;
-        //   top: -60px;
-        // }
-
-        &::after {
-          position: absolute;
-          left: 7px;
-          top: -84px;
-          z-index: -1;
-          content: "";
-          width: 108px;
-          height: 282px;
-          border-radius: 0px 0px 0px 35px;
-          border-left: 1px solid #565555;
-          border-bottom: 1px solid #999999;
-
-          // @media (min-width: 992px) and (max-width: 1199px) {
-          //   height: 230px;
-          // }
-
-          @media (max-width: 767px) {
-            height: 143px;
-            width: 62px;
-          }
-        }
-        li {
-          position: relative;
-
-          width: 172px;
-          padding-left: 37px;
-          display: flex;
-          align-items: center;
-          margin-bottom: 10px;
-          font-size: 12px;
-          color: #d0d0d0;
-
-          @media (max-width: 767px) {
-            padding-left: 26px;
-            position: relative;
-            bottom: 60px;
-            font-size: 10px;
-            margin-bottom: 13px;
-          }
-          &::after {
-            position: absolute;
-
-            background-color: $secondary_color;
-            content: "";
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-
-            @media (max-width: 767px) {
-              top: 0px;
-            }
-
-            border: 1.5px solid #535353;
-
-            left: 0;
-            top: 5px;
-
-            @media (min-width: 992px) and (max-width: 1199px) {
-              top: 7px;
-            }
-          }
+          width: 10px;
+          height: 10px;
         }
       }
     }
   }
 }
-
 .img_skills {
   display: flex;
   position: absolute;
-  right: 191px;
-  bottom: 10px;
+  // right: 191px;
+  left: 57%;
+  transform: translateX(-50%);
+  bottom: -146px;
   gap: 10px;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 991px) {
-    display: none;
-  }
+  width: 230px;
 
   @media (max-width: 767px) {
-    right: 3%;
-    bottom: 39%;
+    bottom: -100px;
   }
 
-  // @media (min-width: 1220px) {
-  //   right: 154px;
-  //   bottom: 6px;
-  // }
+  .img {
+    display: flex;
+    align-items: center;
+    img {
+      @media (max-width: 767px) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
 
   .con_img {
     line-height: 18px;
@@ -458,6 +454,10 @@ body {
       }
 
       color: $primary_color;
+
+      @media (max-width: 767px) {
+        font-size: 8px;
+      }
     }
     p {
       font : {
@@ -465,6 +465,9 @@ body {
         weight: 400;
       }
       color: #999999;
+      @media (max-width: 767px) {
+        font-size: 8px;
+      }
     }
   }
 }

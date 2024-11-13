@@ -1,12 +1,11 @@
-@import "./abstracts/vars";
-@import "./abstracts/mixin";
+@import "./app/abstracts/vars";
+@import "./app/abstracts/mixin.scss";
 @import url("https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 ul {
   list-style: none;
 }
@@ -16,9 +15,10 @@ a {
   text-decoration: none;
 }
 
-body {
+body,
+html {
   font-family: "Poppins", sans-serif;
-  // overflow-x: hidden;
+  overflow: auto;
 }
 
 section {
@@ -55,11 +55,6 @@ button {
   line-height: 41px;
   font-size: 14px;
   color: $primary_color;
-  //   @media (min-width: 992px) and (max-width: 1199px) {
-  //  height: 38px;
-  //  font-size: 13px;
-  //   }
-
   @media (max-width: 767px) {
     width: 96px;
     height: 35px;
@@ -75,6 +70,7 @@ body {
 .logo {
   display: flex;
   align-items: center;
+
   img {
     margin-right: 6px;
   }

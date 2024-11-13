@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-integration',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrl: './integration.component.scss'
 })
 export class IntegrationComponent {
+
+
+  title:Title=inject(Title);
+
+
+
+
+
+  ngOnInit(){
+    this.title.setTitle('Intergration Page')
+  }
 
 }

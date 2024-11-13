@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-support',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class SupportComponent {
 
+
+  title:Title=inject(Title)
+
+
+
+  ngOnInit(){
+    this.title.setTitle('Support Page')
+  }
 }
